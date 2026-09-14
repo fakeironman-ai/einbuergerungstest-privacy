@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Einbürgerungstest Datenschutz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F5FA;
+    --surface: #FFFFFF;
+    --ink: #1B1A22;
+    --ink-2: #55525F;
+    --ink-3: #8B879A;
+    --border: rgba(27,26,34,0.11);
+    --accent: #5B3DF5;
+    --accent-soft: #EDEAFE;
+    --accent-ink: #FFFFFF;
+    --amber: #FFC53D;
+    --amber-ink: #1B1A22;
+    --focus: #5B3DF5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1B1A22;
+      --surface: #242231;
+      --ink: #F6F5FA;
+      --ink-2: #C9C6D4;
+      --ink-3: #9A96A8;
+      --border: rgba(255,255,255,0.12);
+      --accent: #8C7DFF;
+      --accent-soft: #322B57;
+      --accent-ink: #16132A;
+      --amber: #FFC53D;
+      --amber-ink: #1B1A22;
+      --focus: #8C7DFF;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1A22;
+    --surface: #242231;
+    --ink: #F6F5FA;
+    --ink-2: #C9C6D4;
+    --ink-3: #9A96A8;
+    --border: rgba(255,255,255,0.12);
+    --accent: #8C7DFF;
+    --accent-soft: #322B57;
+    --accent-ink: #16132A;
+    --amber: #FFC53D;
+    --amber-ink: #1B1A22;
+    --focus: #8C7DFF;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    padding-inline: 20px;
+    padding-block: 56px 80px;
+    line-height: 1.6;
+  }
+  .page {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  /* ---- Header ---- */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, var(--accent), #7C4DFF);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: 11px;
+    border: 2.5px solid var(--amber);
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotate(45deg);
+  }
+  .brand-name {
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.2px;
+  }
+  .brand-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+  }
+
+  h1 {
+    font-size: clamp(28px, 6vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    text-wrap: balance;
+    margin: 0 0 10px;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    margin-bottom: 36px;
+  }
+  .meta b { color: var(--ink-2); font-weight: 500; }
+
+  /* ---- At-a-glance summary ---- */
+  .glance {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 24px;
+    margin-bottom: 44px;
+  }
+  .glance-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .glance-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .glance-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .glance-list li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .glance-list strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- TOC ---- */
+  nav.toc {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  nav.toc ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  nav.toc a {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--ink-2);
+    text-decoration: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 7px 14px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  nav.toc a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  /* ---- Sections ---- */
+  section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    color: var(--ink);
+  }
+  p { margin: 0 0 14px; max-width: 62ch; color: var(--ink-2); font-size: 15.5px; }
+  p:last-child { margin-bottom: 0; }
+  ul.plain { margin: 0 0 14px; padding-left: 20px; color: var(--ink-2); font-size: 15.5px; }
+  ul.plain li { margin-bottom: 6px; }
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 5px;
+  }
+  a.inline { color: var(--accent); text-decoration-color: var(--border); text-underline-offset: 3px; }
+  a.inline:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+
+  table.datatable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    display: block;
+  }
+  table.datatable thead { display: table-header-group; }
+  table.datatable tbody { display: table-row-group; }
+  table.datatable tr { display: table-row; }
+  table.datatable th, table.datatable td {
+    display: table-cell;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.datatable th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  table.datatable td { color: var(--ink-2); }
+  table.datatable td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+  .callout {
+    border-left: 3px solid var(--amber);
+    background: var(--accent-soft);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    margin: 16px 0;
+  }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--ink-3);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer .mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+  @media (max-width: 480px) {
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true"></div>
+    <div>
+      <div class="brand-name">Einbürgerungstest</div>
+      <div class="brand-sub">com.sameersoni.dreiunddreissigfragen</div>
+    </div>
+  </div>
+
+  <h1>Datenschutzerklärung</h1>
+  <p class="meta">Gültig ab <b>14. September 2026</b> &nbsp;·&nbsp; Version <b>1.0</b> &nbsp;·&nbsp; App-Version <b>1.0.0</b></p>
+
+  <div class="glance">
+    <div class="glance-label">Auf einen Blick</div>
+    <ul class="glance-list">
+      <li><strong>Diese App sendet keine Daten.</strong> Sie funktioniert vollständig offline und stellt zur Laufzeit keine einzige Netzwerkverbindung her.</li>
+      <li><strong>Es gibt kein Konto, keine Anmeldung, keine Server.</strong> Niemand außer Ihnen selbst kann Ihre Lernfortschritte sehen.</li>
+      <li><strong>Alle Daten bleiben ausschließlich auf Ihrem Gerät</strong> — in einer lokalen Datenbank, die beim Deinstallieren der App vollständig gelöscht wird.</li>
+      <li><strong>Keine Werbung, kein Tracking, keine Analyse-Dienste.</strong> Die App fordert keinerlei Berechtigungen von Ihrem Gerät an.</li>
+    </ul>
+  </div>
+
+  <nav class="toc" aria-label="Abschnitte">
+    <ol>
+      <li><a href="#erhebung">Welche Daten erhoben werden</a></li>
+      <li><a href="#lokal">Was lokal gespeichert wird</a></li>
+      <li><a href="#berechtigungen">Berechtigungen</a></li>
+      <li><a href="#weitergabe">Weitergabe an Dritte</a></li>
+      <li><a href="#kinder">Kinder</a></li>
+      <li><a href="#rechte">Ihre Rechte</a></li>
+      <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ol>
+  </nav>
+
+  <section id="erhebung">
+    <h2>1. Welche Daten erhoben werden</h2>
+    <p>
+      Keine. Einbürgerungstest ist als reine Offline-Lern-App konzipiert:
+      Der Quellcode enthält zu keinem Zeitpunkt einen Netzwerkaufruf. Es gibt
+      keinen Server, an den Daten übertragen werden könnten, weil die App
+      keinen betreibt und mit keinem kommuniziert. Weder der Entwickler noch
+      Dritte erhalten Einsicht in Ihre Nutzung, Ihre Antworten oder Ihr Gerät.
+    </p>
+    <p>
+      Das gilt unabhängig davon, ob Sie online oder offline sind — die App
+      verhält sich in beiden Fällen identisch, weil sie nie versucht, eine
+      Verbindung aufzubauen.
+    </p>
+  </section>
+
+  <section id="lokal">
+    <h2>2. Was lokal auf Ihrem Gerät gespeichert wird</h2>
+    <p>
+      Damit die App Ihren Fortschritt zwischen zwei Sitzungen merken kann,
+      legt sie eine kleine, private Datenbank ausschließlich im
+      App-eigenen Speicherbereich Ihres Geräts an. Auf diese Datenbank kann
+      keine andere App zugreifen.
+    </p>
+    <table class="datatable">
+      <thead>
+        <tr><th>Kategorie</th><th>Beispiele</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Lernfortschritt</td><td>welche Fragen Sie beantwortet haben, wie oft, ob richtig oder falsch, Wiederholungstermine (Spaced Repetition)</td></tr>
+        <tr><td>Prüfungsversuche</td><td>Ergebnisse Ihrer 10 Übungsprüfungen, benötigte Zeit</td></tr>
+        <tr><td>Markierte Fragen</td><td>von Ihnen mit dem Stern versehene Fragen</td></tr>
+        <tr><td>Serie &amp; Punktestand</td><td>tägliche Lernserie, gesammelte XP</td></tr>
+        <tr><td>Einstellungen</td><td>gewähltes Bundesland, gewählte Sprache</td></tr>
+      </tbody>
+    </table>
+    <p>
+      Diese Daten verlassen Ihr Gerät nie. Sie werden nicht gesichert, nicht
+      synchronisiert und nicht exportiert. Über
+      <code>Einstellungen → Fortschritt zurücksetzen</code> können Sie sie
+      jederzeit vollständig löschen; eine Deinstallation der App entfernt sie
+      ebenfalls unwiderruflich.
+    </p>
+  </section>
+
+  <section id="berechtigungen">
+    <h2>3. Berechtigungen</h2>
+    <p>
+      Die App fordert keine einzige Android-Berechtigung an — weder Internet,
+      Speicher, Kamera, Standort noch Kontakte. Das ist im Manifest der App
+      technisch nicht vorgesehen, nicht nur nicht genutzt.
+    </p>
+  </section>
+
+  <section id="weitergabe">
+    <h2>4. Weitergabe an Dritte</h2>
+    <p>
+      Entfällt. Da die App keine Daten erhebt, gibt es nichts, das an
+      Werbenetzwerke, Analyse-Dienste oder sonstige Dritte weitergegeben
+      werden könnte. Die App enthält keine Werbe-SDKs und keine
+      Tracking-Bibliotheken.
+    </p>
+    <div class="callout">
+      Aktuell ist auch keine Absturzberichterstattung (Crash-Reporting)
+      integriert. Sollte das künftig ergänzt werden, geschieht dies nur mit
+      Zustimmung der Nutzerin bzw. des Nutzers, und diese Erklärung wird vorab
+      aktualisiert.
+    </div>
+  </section>
+
+  <section id="kinder">
+    <h2>5. Kinder</h2>
+    <p>
+      Die App richtet sich an Personen, die sich auf den deutschen
+      Einbürgerungstest vorbereiten, in der Regel Erwachsene. Da grundsätzlich
+      keinerlei personenbezogene Daten erhoben werden, entsteht auch bei
+      Nutzung durch Minderjährige kein zusätzliches Datenschutzrisiko.
+    </p>
+  </section>
+
+  <section id="rechte">
+    <h2>6. Ihre Rechte</h2>
+    <p>
+      Da keine Daten das Gerät verlassen, gibt es serverseitig nichts, worüber
+      Auskunft erteilt oder das gelöscht werden könnte — die volle Kontrolle
+      liegt bereits vollständig bei Ihnen, direkt auf Ihrem Gerät, über
+      <code>Einstellungen → Fortschritt zurücksetzen</code> oder durch
+      Deinstallation der App.
+    </p>
+  </section>
+
+  <section id="aenderungen">
+    <h2>7. Änderungen dieser Erklärung</h2>
+    <p>
+      Wird diese Erklärung geändert — etwa weil eine neue, optionale Funktion
+      wie ein freiwilliges Feedback-Formular hinzukommt — wird das Datum am
+      Seitenanfang aktualisiert und die wesentliche Änderung hier kurz
+      zusammengefasst. Es gibt keine stille Ausweitung der Datenerhebung ohne
+      sichtbare Aktualisierung dieser Seite.
+    </p>
+  </section>
+
+  <section id="kontakt">
+    <h2>8. Kontakt</h2>
+    <p>
+      Fragen zu dieser Erklärung oder zur App richten Sie bitte an:
+      <a class="inline" href="mailto:sameersoni.00@gmail.com">sameersoni.00@gmail.com</a>
+    </p>
+    <p>
+      Einbürgerungstest ist eine unabhängige Lern-App und weder vom BAMF
+      noch von einer Behörde autorisiert oder herausgegeben.
+    </p>
+  </section>
+
+  <footer>
+    <span>© 2026 Sameer Soni</span>
+    <span class="mono">einbuergerungstest2 · rev. 2026-09-14</span>
+  </footer>
+</div>
+</body>
+</html>
