@@ -295,15 +295,15 @@
   </div>
 
   <h1>Datenschutzerklärung</h1>
-  <p class="meta">Gültig ab <b>19. September 2026</b> &nbsp;·&nbsp; Version <b>1.1</b> &nbsp;·&nbsp; App-Version <b>1.0.1</b></p>
+  <p class="meta">Gültig ab <b>5. Oktober 2026</b> &nbsp;·&nbsp; Version <b>1.2</b> &nbsp;·&nbsp; App-Version <b>1.0.2</b></p>
 
   <div class="glance">
     <div class="glance-label">Auf einen Blick</div>
     <ul class="glance-list">
-      <li><strong>Diese App sendet keine Daten.</strong> Sie funktioniert vollständig offline und stellt zur Laufzeit keine einzige Netzwerkverbindung her.</li>
-      <li><strong>Es gibt kein Konto, keine Anmeldung, keine Server.</strong> Niemand außer Ihnen selbst kann Ihre Lernfortschritte sehen.</li>
-      <li><strong>Alle Daten bleiben ausschließlich auf Ihrem Gerät</strong> — in einer lokalen Datenbank, die beim Deinstallieren der App vollständig gelöscht wird.</li>
-      <li><strong>Keine Werbung, kein Tracking, keine Analyse-Dienste.</strong> Die App fordert keinerlei Berechtigungen von Ihrem Gerät an.</li>
+      <li><strong>Diese App sendet keine Daten an den Entwickler oder an Dritte.</strong> Zum Lernen funktioniert sie vollständig offline. Einzige Ausnahme sind Käufe: Nur wenn Sie den Kaufbildschirm öffnen, etwas kaufen oder Käufe wiederherstellen, tauscht die App über den Abrechnungsdienst von Google Play Informationen mit Google aus (Details in Abschnitt 3).</li>
+      <li><strong>Es gibt kein Konto, keine Anmeldung, keinen Server des Entwicklers.</strong> Niemand außer Ihnen selbst kann Ihren Lernfortschritt sehen.</li>
+      <li><strong>Ihre Daten liegen auf Ihrem Gerät</strong> — in einer lokalen Datenbank. Ist die Android-Datensicherung aktiviert, kann Android sie Ende-zu-Ende-verschlüsselt in Ihrem eigenen Google-Konto sichern; der Entwickler hat darauf keinen Zugriff (Details in Abschnitt 2).</li>
+      <li><strong>Keine Werbung, kein Tracking, keine Analyse-Dienste.</strong> Die einzige Berechtigung, um die die App Sie bittet, ist die für Benachrichtigungen — und nur, wenn Sie die tägliche Lernerinnerung einschalten.</li>
     </ul>
   </div>
 
@@ -311,7 +311,8 @@
     <ol>
       <li><a href="#erhebung">Welche Daten erhoben werden</a></li>
       <li><a href="#lokal">Was lokal gespeichert wird</a></li>
-      <li><a href="#berechtigungen">Berechtigungen</a></li>
+      <li><a href="#kaeufe">Käufe über Google Play</a></li>
+      <li><a href="#berechtigungen">Berechtigungen &amp; Erinnerungen</a></li>
       <li><a href="#weitergabe">Weitergabe an Dritte</a></li>
       <li><a href="#kinder">Kinder</a></li>
       <li><a href="#rechte">Ihre Rechte</a></li>
@@ -323,16 +324,19 @@
   <section id="erhebung">
     <h2>1. Welche Daten erhoben werden</h2>
     <p>
-      Keine. Einbürgerungstest ist als reine Offline-Lern-App konzipiert:
-      Der Quellcode enthält zu keinem Zeitpunkt einen Netzwerkaufruf. Es gibt
-      keinen Server, an den Daten übertragen werden könnten, weil die App
-      keinen betreibt und mit keinem kommuniziert. Weder der Entwickler noch
-      Dritte erhalten Einsicht in Ihre Nutzung, Ihre Antworten oder Ihr Gerät.
+      Die App selbst erhebt keine Daten. (Nur wenn Sie etwas kaufen, erhält
+      der Entwickler von Google die üblichen Bestellinformationen, siehe
+      Abschnitt 3.) Einbürgerungstest ist als Offline-Lern-App konzipiert: Es gibt
+      keinen Server des Entwicklers, an den Daten übertragen werden könnten,
+      und die App enthält keine Analyse-, Tracking- oder Werbedienste. Weder
+      der Entwickler noch Dritte erhalten Einsicht in Ihre Nutzung, Ihre
+      Antworten oder Ihr Gerät.
     </p>
     <p>
-      Das gilt unabhängig davon, ob Sie online oder offline sind — die App
-      verhält sich in beiden Fällen identisch, weil sie nie versucht, eine
-      Verbindung aufzubauen.
+      Zum Lernen benötigt die App keine Internetverbindung. Die einzige
+      Funktion, die mit einem Server kommuniziert, ist der optionale Kauf
+      der Vollversion über Google Play — und auch das nur, wenn Sie ihn
+      bei Aktionen, die Sie selbst auslösen (siehe Abschnitt 3).
     </p>
   </section>
 
@@ -353,37 +357,123 @@
         <tr><td>Prüfungsversuche</td><td>Ergebnisse Ihrer 10 Übungsprüfungen, benötigte Zeit</td></tr>
         <tr><td>Markierte Fragen</td><td>von Ihnen mit dem Stern versehene Fragen</td></tr>
         <tr><td>Serie &amp; Punktestand</td><td>tägliche Lernserie, gesammelte XP</td></tr>
-        <tr><td>Einstellungen</td><td>gewähltes Bundesland, gewählte Sprache</td></tr>
+        <tr><td>Tägliche Lernaktivität</td><td>Anzahl beantworteter und richtig beantworteter Fragen sowie XP pro Tag</td></tr>
+        <tr><td>Einstellungen</td><td>gewähltes Bundesland, gewählte Sprache, ob und zu welcher Uhrzeit die tägliche Lernerinnerung aktiv ist, ob die Einführung abgeschlossen ist, ob der Sprachhinweis angezeigt wurde und ob der Bewertungsdialog bereits angefragt wurde</td></tr>
+        <tr><td>Kaufstatus</td><td>ob die Vollversion freigeschaltet ist, sowie die von Google Play ausgegebene Kaufkennung (Purchase-Token) — nur falls Sie gekauft haben</td></tr>
       </tbody>
     </table>
     <p>
-      Diese Daten verlassen Ihr Gerät nie. Sie werden nicht gesichert, nicht
-      synchronisiert und nicht exportiert. Über
-      <code>Einstellungen → Fortschritt zurücksetzen</code> können Sie sie
-      jederzeit vollständig löschen; eine Deinstallation der App entfernt sie
-      ebenfalls unwiderruflich.
+      Die App selbst überträgt diese Daten nie und synchronisiert oder
+      exportiert sie nicht. Über
+      <code>Einstellungen → Fortschritt zurücksetzen</code> können Sie Ihren
+      Lernfortschritt, Ihre Prüfungsversuche, markierten Fragen, Ihre tägliche
+      Lernaktivität sowie Serie und Punktestand jederzeit löschen; Ihre Einstellungen und Ihr Kaufstatus
+      bleiben dabei erhalten. Eine Deinstallation der App entfernt alle
+      genannten Daten von Ihrem Gerät.
+    </p>
+    <p>
+      <strong>Android-Datensicherung:</strong> Ist die Sicherung in den
+      Android-Einstellungen aktiviert, kann Android selbst diese Daten in Ihrem
+      eigenen Google-Konto sichern und nach einer Neuinstallation oder auf
+      einem neuen Gerät wiederherstellen. Die App lässt diese Sicherung nur zu,
+      wenn sie Ende-zu-Ende-verschlüsselt ist (ab Android 9, wenn Ihr Gerät
+      eine Displaysperre hat); ohne diese Verschlüsselung — etwa auf Android 7
+      und 8 oder ohne Displaysperre — wird die App nicht in Ihr Google-Konto
+      gesichert. Die verschlüsselte Sicherung können weder der Entwickler noch
+      Google lesen. Ab Android 12 können die Daten beim Einrichten eines neuen Geräts
+      außerdem direkt von Gerät zu Gerät übertragen werden.
+    </p>
+  </section>
+
+  <section id="kaeufe">
+    <h2>3. Käufe über Google Play</h2>
+    <p>
+      Die App kann kostenlos genutzt werden. Optional können Sie einmalig die
+      Vollversion kaufen (Übersetzungen der Fragen und Antworten sowie die
+      Übungsprüfungen 3 bis 10). Der Kauf wird vollständig über das
+      Abrechnungssystem von Google Play abgewickelt. Zahlungsdaten wie
+      Kartennummer oder Bankverbindung geben Sie ausschließlich bei Google
+      ein; die App und der Entwickler erhalten sie nie.
+    </p>
+    <p>
+      Beim Start meldet sich die App lediglich beim Abrechnungsdienst der
+      Google-Play-App auf Ihrem Gerät an, damit sie das Ergebnis eines Kaufs
+      empfangen kann; dabei übermittelt die App keine Daten. Informationen zu
+      Produkt und Kauf werden nur in diesen Fällen mit Google Play
+      ausgetauscht:
+    </p>
+    <ul class="plain">
+      <li>wenn Sie den Kaufbildschirm öffnen (um den aktuellen Preis anzuzeigen),</li>
+      <li>wenn Sie auf die Kauf-Schaltfläche („Freischalten für …“) tippen,</li>
+      <li>wenn Sie auf „Käufe wiederherstellen“ tippen,</li>
+      <li>wenn Google Play der App das Ergebnis eines Kaufs meldet, den Sie zuvor ausgelöst haben (z. B. bei einer verzögert bestätigten Zahlung).</li>
+    </ul>
+    <p>
+      Nach einem erfolgreichen Kauf speichert die App lokal auf Ihrem Gerät,
+      dass die Vollversion freigeschaltet ist, sowie die Kaufkennung, die
+      Google Play dafür ausgibt (siehe Abschnitt 2). Diese Angaben sendet
+      die App an niemanden. Ob die Vollversion freigeschaltet ist, prüft die
+      App im Alltag anhand dieser lokalen Speicherung, ohne Internetverbindung.
+    </p>
+    <p>
+      Den Kauf selbst verarbeitet Google als Anbieter von Google Play gemäß
+      der <a class="inline" href="https://policies.google.com/privacy" rel="noopener">Datenschutzerklärung von Google</a>.
+      Wie bei jedem Kauf im Play Store erhält der Entwickler von Google die
+      üblichen Bestellinformationen (z. B. Bestellnummer, Datum, Produkt,
+      Preis sowie Land und ggf. Region/Postleitzahl für steuerliche Zwecke),
+      jedoch keine Zahlungsdaten. Diese Bestellinformationen verwendet der
+      Entwickler ausschließlich zur Abwicklung des Kaufs, für Rückerstattungen
+      und zur Erfüllung gesetzlicher Aufbewahrungspflichten.
     </p>
   </section>
 
   <section id="berechtigungen">
-    <h2>3. Berechtigungen</h2>
+    <h2>4. Berechtigungen &amp; Erinnerungen</h2>
     <p>
-      Die App fordert keine einzige Android-Berechtigung an — weder Internet,
-      Speicher, Kamera, Standort noch Kontakte. Das ist im Manifest der App
-      technisch nicht vorgesehen, nicht nur nicht genutzt.
+      Die App fordert keinen Zugriff auf Speicher, Kamera, Mikrofon, Standort
+      oder Kontakte an. Um eine Berechtigung bittet die App Sie nur in einem
+      Fall (Benachrichtigungen). Alle übrigen unten aufgeführten Berechtigungen
+      gewährt Android automatisch, ohne Abfrage:
+    </p>
+    <ul class="plain">
+      <li><strong>Benachrichtigungen</strong> — nur für die optionale tägliche
+        Lernerinnerung. Sie ist standardmäßig ausgeschaltet; Android (ab
+        Version 13) fragt erst
+        dann nach dieser Berechtigung, wenn Sie die Erinnerung selbst
+        einschalten. Sie können sie jederzeit in den Einstellungen der App
+        oder in den Android-Einstellungen wieder abschalten.</li>
+      <li><strong>Beim Start ausführen</strong> — damit eine
+        eingeschaltete Erinnerung nach einem Neustart des Geräts erneut geplant
+        wird. Diese Berechtigung gewährt Android automatisch, ohne Abfrage.</li>
+      <li><strong>Google-Play-Abrechnung</strong> — wird für den optionalen
+        Kauf benötigt (siehe Abschnitt 3) und ebenfalls automatisch gewährt.</li>
+      <li><strong>Netzwerkzugriff und Netzwerkstatus</strong> — werden von der
+        Google-Play-Abrechnungsbibliothek mitgebracht und nur für Käufe genutzt
+        (siehe Abschnitt 3). Die App selbst lädt keine Inhalte aus dem Internet
+        und sendet keine Daten.</li>
+      <li><strong>Vibration</strong> — damit die Erinnerung vibrieren kann,
+        falls das in Ihren Benachrichtigungseinstellungen aktiviert ist.</li>
+    </ul>
+    <p>
+      Die Erinnerung wird vollständig auf Ihrem Gerät geplant und erzeugt. Ihr
+      Inhalt (z. B. wie viele Fragen zur Wiederholung anstehen) wird aus der
+      lokalen Datenbank berechnet. Es gibt keinen Push-Dienst und keinen
+      Server, der Erinnerungen versendet.
     </p>
   </section>
 
   <section id="weitergabe">
-    <h2>4. Weitergabe an Dritte</h2>
+    <h2>5. Weitergabe an Dritte</h2>
     <p>
       Entfällt. Da die App keine Daten erhebt, gibt es nichts, das an
       Werbenetzwerke, Analyse-Dienste oder sonstige Dritte weitergegeben
       werden könnte. Die App enthält keine Werbe-SDKs und keine
-      Tracking-Bibliotheken.
+      Tracking-Bibliotheken. Die einzigen Berührungspunkte mit Dritten sind
+      die von Ihnen ausgelösten Käufe über Google Play (Abschnitt 3) und der
+      unten beschriebene Bewertungsdialog.
     </p>
     <p>
-      Nach einer bestandenen Übungsprüfung kann die App den
+      Nach einer abgeschlossenen Übungsprüfung kann die App einmalig den
       Bewertungsdialog von Google Play anzeigen (Google In-App-Review). Diesen
       Dialog zeigt die Google-Play-App selbst an; eine freiwillig abgegebene
       Bewertung wird von Google Play gemäß dessen eigenen Bedingungen
@@ -399,28 +489,37 @@
   </section>
 
   <section id="kinder">
-    <h2>5. Kinder</h2>
+    <h2>6. Kinder</h2>
     <p>
       Die App richtet sich an Personen, die sich auf den deutschen
-      Einbürgerungstest vorbereiten, in der Regel Erwachsene. Da grundsätzlich
-      keinerlei personenbezogene Daten erhoben werden, entsteht auch bei
+      Einbürgerungstest vorbereiten, in der Regel Erwachsene. Da die App
+      grundsätzlich keinerlei personenbezogene Daten erhebt, entsteht auch bei
       Nutzung durch Minderjährige kein zusätzliches Datenschutzrisiko.
     </p>
   </section>
 
   <section id="rechte">
-    <h2>6. Ihre Rechte</h2>
+    <h2>7. Ihre Rechte</h2>
     <p>
-      Da keine Daten das Gerät verlassen, gibt es serverseitig nichts, worüber
-      Auskunft erteilt oder das gelöscht werden könnte — die volle Kontrolle
-      liegt bereits vollständig bei Ihnen, direkt auf Ihrem Gerät, über
-      <code>Einstellungen → Fortschritt zurücksetzen</code> oder durch
-      Deinstallation der App.
+      Da die App keine Daten an den Entwickler überträgt, gibt es
+      serverseitig nichts, worüber Auskunft erteilt werden oder was gelöscht werden
+      könnte — die volle Kontrolle liegt bei Ihnen, direkt auf Ihrem Gerät,
+      über <code>Einstellungen → Fortschritt zurücksetzen</code> oder durch
+      Deinstallation der App. Eine etwaige Android-Sicherung in Ihrem
+      Google-Konto (siehe Abschnitt 2) können Sie in den Android-Einstellungen
+      deaktivieren (z. B. unter „Google → Sicherung“; die Bezeichnung variiert
+      je nach Hersteller) und über Google Drive bzw. Google One löschen.
+    </p>
+    <p>
+      Angaben zu Ihren Käufen verwaltet Google in Ihrem Google-Konto; Auskunft
+      oder Löschung können Sie dort bzw. bei Google beantragen. Für Fragen zu
+      Bestellinformationen, die dem Entwickler vorliegen (siehe Abschnitt 3),
+      wenden Sie sich an die unten genannte Adresse.
     </p>
   </section>
 
   <section id="aenderungen">
-    <h2>7. Änderungen dieser Erklärung</h2>
+    <h2>8. Änderungen dieser Erklärung</h2>
     <p>
       Wird diese Erklärung geändert — etwa weil eine neue, optionale Funktion
       wie ein freiwilliges Feedback-Formular hinzukommt — wird das Datum am
@@ -430,12 +529,22 @@
     </p>
     <p>
       <b>19.09.2026 (Version 1.1):</b> Hinweis auf den optionalen
-      Bewertungsdialog von Google Play ergänzt (Abschnitt 4).
+      Bewertungsdialog von Google Play ergänzt (damals Abschnitt 4, heute
+      Abschnitt 5).
+    </p>
+    <p>
+      <b>05.10.2026 (Version 1.2):</b> Hinweis auf die Android-Datensicherung
+      ergänzt, die die App nur Ende-zu-Ende-verschlüsselt zulässt (Abschnitte 2
+      und 7); optionaler Kauf der Vollversion über Google Play ergänzt
+      (Abschnitte 1 bis 5 und 7); optionale tägliche Lernerinnerung und die dafür
+      genutzten Berechtigungen ergänzt (Abschnitte 2 und 4); der
+      Bewertungsdialog erscheint nun höchstens einmal, nach der ersten
+      abgeschlossenen Übungsprüfung (bestanden oder nicht) (Abschnitt 5).
     </p>
   </section>
 
   <section id="kontakt">
-    <h2>8. Kontakt</h2>
+    <h2>9. Kontakt</h2>
     <p>
       Fragen zu dieser Erklärung oder zur App richten Sie bitte an:
       <a class="inline" href="mailto:sameersoni.00@gmail.com">sameersoni.00@gmail.com</a>
@@ -448,7 +557,7 @@
 
   <footer>
     <span>© 2026 Sameer Soni</span>
-    <span class="mono">einbuergerungstest2 · rev. 2026-09-14</span>
+    <span class="mono">einbuergerungstest2 · rev. 2026-10-05</span>
   </footer>
 </div>
 </body>
